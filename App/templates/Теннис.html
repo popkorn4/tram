@@ -1,0 +1,80 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="T">
+    <div class="container">
+    <div class="row">
+      {%for i in m%}
+    <div class="col-lg-3 col-sm-4 ">
+
+
+
+      <div class="card" style="width: 18rem;">
+        <img src="/static/images/{{i.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.Name}}</h5>
+          <p class="card-text">{{i.price}}$</p>
+          <a href="/buy/{{i.Tablet_Id}}" class="btn btn-primary">Смотреть подробнее</a>
+        </div>
+      </div>
+
+</div>
+{%endfor%}
+<div class="col-lg-1"></div>
+<div class="col-lg-2 col-sm-4 ">
+<img src="/static/images/d.jpg" >
+</div>
+<div class="col-lg-1"></div>
+<div class="col-lg-2 col-sm-4 ">
+<img src="/static/images/e.jpg" >
+</div>
+<div class="col-lg-1"></div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/f.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/g.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/h.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/j.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/k.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/l.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/o.png" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/q.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/r.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/s.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/t.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/u.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/w.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/y.jpg" >
+</div>
+<div class="col-lg-3 col-sm-4 ">
+<img src="/static/images/z.jpg" >
+</div>
+</div>
+</div>
+</div>
+</div>
+{%endblock%}

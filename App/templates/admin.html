@@ -1,0 +1,50 @@
+{%extends "base.html"%}
+{%block content%}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="row">
+        <div class="col-6">
+            <p>{{ form.name.label }}</p>
+        </div>
+        <div class="col-6">
+            {{ form.name(size=32) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p>{{ form.category.label }}</p>
+        </div>
+        <div class="col-6">
+            {{ form.category(size=32) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p>{{ form.description.label }}</p>
+        </div>
+        <div class="col-6">
+            {{ form.description(size=32) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p>{{ form.photo_hash.label }}</p>
+        </div>
+        <div class="col-6">
+            {{ form.photo_hash(size=32) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p>{{ form.price.label }}</p>
+        </div>
+        <div class="col-6">
+            {{ form.price}}
+        </div>
+    </div>
+    <p id="button">{{ form.submit() }}</p>
+    {% for cat, error in get_flashed_messages(with_categories = true) %}
+            <span class="{{ cat }}">{{ error }}</span>{% endfor %}
+</form>
+{%endblock%}

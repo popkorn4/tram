@@ -1,0 +1,32 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container">
+    <h1 class="text-center">
+    {{lll.Name}}
+    </h1>
+    <div class="row">
+        <div class="col-6">
+        <img  width="500" src="/static/images/{{lll.picture}}" >
+        </div>
+        <div class="col-6">
+            <h4>
+            <p>
+                {{lll.About}}
+            </p>
+            </h4>
+            <a href="/real_buy/{{lll.Tablet_Id}}" class="btn btn-primary">Купить</a>
+            <button onclick="add()" class="btn btn-primary">Добавить в корзину</button>
+        </div>
+    </div>
+</div>
+<script>
+    function add() {
+        $.ajax({
+                type: "post",
+                url: "/add_item_in_order/",
+                dataType: "json",
+                data : { id : {{lll.Tablet_Id}}}
+            });
+     }
+</script>
+{%endblock%}

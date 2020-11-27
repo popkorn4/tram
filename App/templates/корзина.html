@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Товары в корзине</h1>
+<div class="row justify-content-center">
+
+    {% for item in items %}
+    <div class="col-3">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="/static/images/{{item.picture}}" class="card-img" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.Name}}</h5>
+                  <p class="card-text">{{item.price}}$</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+    </div>
+
+    {% endfor %}
+</div>
+
+<h2>Оформить заказ</h2>
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.adress.label }}
+                {{ form.adress(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.Name.label }}
+                {{ form.Name(size=32) }}<br>
+            </p>
+            <p>
+              {{ form.tel.label }}
+              {{ form.tel(size=32) }}<br>
+            </p>
+            <p>
+              {{ form.Maile.label }}
+              {{ form.Maile(size=32) }}<br>
+            </p>
+
+
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
