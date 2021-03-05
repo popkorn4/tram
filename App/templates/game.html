@@ -1,0 +1,62 @@
+{%extends "base.html"%}
+{%block content%}
+<!-- <form action="" method="post" novalidate> -->
+    <select  id="player">
+        <option disabled>Выберите героя</option>
+        <option value="p">Игрок</option>
+        <option value="b">Банкир</option>
+        <option value="t">Ничья</option>
+    </select>
+    
+<input id="money" type="number">
+<button onclick="add()">
+    НАЧАТЬ ИГРУ
+</button>
+<div id="id"></div>
+<script>
+    function add() {
+
+        $.ajax({
+                type: "post",
+                url: "/start_game/",
+                dataType: "json",
+                data : { player:  $("#player").val(), money: $("#money").val() }, 
+                success: function (response) {
+                console.log(response);
+                let player_string=''
+                if ($("#player").val()=='p')
+                player_string='ИГРОКА'
+                else if ($("#player").val()=='b')
+                player_string='БАНКИРА'
+                if ($("#player").val()=='t')
+                player_string="НИЧЬЮ"
+                let input = `<h2>Вы выбрали ${player_string} ,и поставили $${$("#money").val() }}`
+                let player_cost='<div><h3>Счёт игрока:'+response.game.player_cost+'</h3></div>'
+                let banker_cost='<div><h3>Счёт банкира:'+response.game.banker_cost+'</h3></div>'
+                let player_cards='<div class="str_player "><h2>Карты игрока: </h2></div>'
+                let banker_cards='<div class="str_banker "><h2>Карты банкира: </h2></div>'
+                let karts_block='<div class="d-flex">'
+                    response.game.player_cards.forEach(function(card,index){
+                        karts_block=karts_block+'<div class="kart player_card'+index+' ">'+'<div style="background: url(../static/images/'+card+'.jpg) no-repeat;background-size: 100%;" class="front"></div>'+'<div class="back"></div></div>'
+                    })
+                karts_block+="</div>"
+                let b_karts_block='<div class="d-flex">'
+
+                    response.game.banker_cards.forEach(function(card,index){
+                        b_karts_block=b_karts_block+'<div class="kart banker_card'+index+' ">'+'<div style="background: url(../static/images/'+card+'.jpg) no-repeat;background-size: 100%;" class="front"></div>'+'<div class="back"></div></div>'
+                    })
+                    b_karts_block+='</div>'
+                let final='<div class="final">'+response.game.net+'</div>'
+                $("#id").html(input+player_cards+banker_cards+player_cost+banker_cost+karts_block+b_karts_block+final)
+}
+            });
+     }
+</script>
+<style>
+    body{
+        background-image: url(../static/images/vector-realistic-casino-roulette-table-wheel-and-black-red-blue-chips-isolated-on-green-background_1284-48487.jpg);
+background-repeat: no-repeat; background-size: 100%; color: white;
+}
+</style>
+<!-- </form> -->
+{%endblock%}

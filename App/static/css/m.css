@@ -1,0 +1,109 @@
+.kart{height: 199px;width: 154px;position: relative;top: 100px;perspective: 1000px;}
+.front,.back{height: 100%;width: 100%;position: absolute;left: 0;top: 0;backface-visibility: hidden;transition: 1s;}
+.front{background-repeat: no-repeat;backface-visibility: hidden;transition: 1s;transform: rotateX(180deg);animation-fill-mode: forwards;animation-duration: 3s;animation-name: rotate_front}
+.back{background-image: url(../images/002.jpg);background-size: 100%;background-repeat: no-repeat;animation-fill-mode: forwards;animation-duration: 3s;animation-name: rotate_back;}
+.kart:hover .front{transform: rotateX(360deg);}
+.kart:hover .back{transform: rotateX(180deg);}
+.player_card0{transform: translateX(30%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinPlayer0;}
+.player_card1{transform: translateX(-85%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinPlayer1;}
+.player_card2{transform: translateX(-200%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinPlayer2;}
+.banker_card0{transform: translateX(-320%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinBanker0;}
+.banker_card1{transform: translateX(-440%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinBanker1;}
+.banker_card2{transform: translateX(-560%) translateY(50%);animation-fill-mode: forwards;animation-duration: 3s;animation-name: slideinBanker2;}
+@keyframes slideinPlayer0 {
+    from {
+      transform: translateX(30%) translateY(50%);
+    }
+  
+    to {
+      transform: translateX(700%) translateY(-210%);
+    }
+  }
+
+  @keyframes slideinPlayer1 {
+    from {
+      transform: translateX(-85%) translateY(50%);
+    }
+  
+    to {
+      transform: translateX(750%) translateY(-210%);
+    }
+  }
+
+  @keyframes slideinPlayer2 {
+    from {
+      transform: translateX(-200%) translateY(50%);
+    }
+  
+    to {
+      transform: translateX(800%) translateY(-210%);
+    }
+  }
+
+
+  @keyframes slideinBanker0 {
+    from {
+      transform: translateX(0%) translateY(-50%);
+    }
+  
+    to {
+      transform: translateX(700%) translateY(-200%);
+    }
+  }
+
+  @keyframes slideinBanker1 {
+    from {
+      transform: translateX(-115%) translateY(-50%);
+    }
+  
+    to {
+      transform: translateX(750%) translateY(-200%);
+    }
+  }
+
+  @keyframes slideinBanker2 {
+    from {
+      transform: translateX(-230%) translateY(-50%);
+    }
+  
+    to {
+      transform: translateX(800%) translateY(-200%);
+    }
+  } 
+
+
+  @keyframes rotate_front {
+    from {
+      transform: rotateX(180deg);
+    }
+  
+    to {
+      transform: rotateX(360deg);
+    }
+  }
+
+
+
+  @keyframes rotate_back {
+    from {
+      transform: rotateX(0deg);
+    }
+  
+    to {
+      transform: rotateX(180deg);
+    }
+  }
+
+.final{text-align: center;font-size: 500%;font-weight: 500; color: rgb(255, 0, 0);border:3px solid black
+  ;background-color:black;position: absolute;transform: translateY(-600px);right: 350px;
+  animation-fill-mode: forwards;animation-delay: 5s;animation-name: appiar;visibility: hidden;}
+@keyframes appiar{
+  from{
+    visibility: hidden;
+  }
+  to{
+    visibility: visible;
+  }
+}
+.str_player{margin-top: 3%;text-align: center;}
+.str_banker{margin-top: 9%;text-align: center;}
